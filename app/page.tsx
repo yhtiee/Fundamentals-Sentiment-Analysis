@@ -108,7 +108,7 @@ const App: React.FC = () => {
     const fetchCurrencyAnalysis = async () => {
       setLoading(true);
       setError(null);
-      let chatHistory = [];
+      const chatHistory = [];
       const prompt = `As a senior forex analyst specializing in swing trading, provide a comprehensive sentiment and fundamental analysis for each of the following currency pairs as of today, ${analysisDate}. For each pair, perform a detailed analysis considering:
       - Global Macroeconomic Environment: Current state of major economies (US, Eurozone, UK, Japan, Canada, Australia, New Zealand, Switzerland), including recent GDP, inflation (CPI/PCE), employment data (NFP, jobless claims), and interest rate outlooks.
       - Central Bank Monetary Policy: Recent decisions, forward guidance, and projected policy paths from the Federal Reserve, European Central Bank, Bank of England, Bank of Japan, Bank of Canada, Reserve Bank of Australia, Reserve Bank of New Zealand, and Swiss National Bank, highlighting any divergences.
@@ -184,9 +184,9 @@ const App: React.FC = () => {
         } else {
           setError('Unexpected API response structure.');
         }
-      } catch (err: any) {
+      } catch (err) {
         console.error("Failed to fetch currency analysis:", err);
-        setError(`Failed to load analysis: ${err.message || 'Unknown error'}`);
+        setError(`Failed to load analysis: ${err || 'Unknown error'}`);
       } finally {
         setLoading(false);
       }
@@ -209,7 +209,7 @@ const App: React.FC = () => {
         Currency Sentiment & Fundamental Analysis
       </h1>
       <p className="text-lg text-gray-700 mb-4 text-center max-w-2xl">
-        This dashboard provides a snapshot of major currency pairs' sentiment and fundamental bias,
+        This dashboard provides a snapshot of major currency pairs`&apos;` sentiment and fundamental bias,
         color-coded for quick interpretation.
       </p>
       <div className="mb-12 text-center text-gray-600 font-semibold text-xl p-3 bg-white rounded-lg shadow-sm">

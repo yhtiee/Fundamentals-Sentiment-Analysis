@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const gemini = async (prompt: any) => {
+const gemini = async (prompt: string) => {
     try{
         //@ts-ignore
         const gGenAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_AI);

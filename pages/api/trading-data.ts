@@ -1,17 +1,9 @@
 import gemini from '@/utils/geminiAI';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-interface TradingDataRequest extends NextApiRequest {
-    // Add custom properties here if needed
-}
-
-interface TradingDataResponse extends NextApiResponse {
-    // Add custom properties here if needed
-}
-
 export default async function handler(
-    req: TradingDataRequest,
-    res: TradingDataResponse
+    req: NextApiRequest,
+    res: NextApiResponse
 ) {
     const method = req.method?.toLowerCase()
     try{
